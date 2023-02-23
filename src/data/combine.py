@@ -29,21 +29,23 @@ def get_videoDetails(data, report = False):
     
 
 def get_videoComments(data, report=False):
-    '''return a dataframe of all comments features from Youtube API'''
+    '''return a dataframe of all comments for videos from Youtube API pull'''
     
-    buffer = []
     no_comment_count = 0
+    buffer = []
     for idx in data.keys():
         if data[idx]['comments'] == 'Invalid lookup':
             no_comment_count += 1
         elif len(data[idx]['comments']['items']) == 0:
             no_comment_count += 1
         else:
-            data[idx]['comments']['items'][0]['yt8M_id'] = idx
-            buffer.append(data[idx]['comments']['items'][0])
+            # normalize video comments 
+            coms_df = pd.json_normalize(data[idx]['comments']['items'], errors='ignore')
+            coms_df['yt8M_id'] = idx
+            buffer.append(coms_df)
     
-    videoComs_df = pd.json_normalize(buffer, errors='ignore')
-    
+    videoComs_df = pd.concat(buffer,ignore_index=True)
+
     if report:
         print(f'{no_comment_count = }')
 
@@ -51,6 +53,8 @@ def get_videoComments(data, report=False):
 
 
 def combine(files_to_combine):
+    '''return a videoDetails df, a videoComments df, and a list of failed video_ids for all videos within the API batch results directory'''
+    
     failed_ids = set()
     vDets_buffer = []
     vComs_buffer = []
@@ -82,7 +86,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     input_files = [os.path.join(args.input_dir, f) 
-        for f in sorted(os.listdir(args.input_dir))]
+                    for f in sorted(os.listdir(args.input_dir)) 
+                    if f.startswith('batch')]
 
     videoDets, videoComs, failed_ids = combine(input_files)
     
