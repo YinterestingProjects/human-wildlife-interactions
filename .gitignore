@@ -167,3 +167,4 @@ cython_debug/
 
 # archived data versions
 data/processed/archive
+data/raw/archive
