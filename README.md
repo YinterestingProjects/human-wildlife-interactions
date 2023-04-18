@@ -1,7 +1,7 @@
-# human-wildlife-interactions 🐘 
+# Modeling Social Interests in Wildlife 🐘 
 
-Check out the blog for a lot more information:
-https://sallyyin.notion.site/Modeling-Social-Interests-In-Wildlife-eb82013e736d4d08ace4eb685149ce28
+Welcome! Here's a brief overview of our project. We also wrote a [blog](https://sallyyin.notion.site/Modeling-Social-Interests-In-Wildlife-eb82013e736d4d08ace4eb685149ce28) with more information on our implemenation.
+
 
 ## Problem Statement
 Social media platforms serve as a rich source of information that documents and reflects the range of societal interests in wildlife. This information can often have sizable impact in conserving biodiversity when harnessed. For instance, [literature](https://www.sciencedirect.com/science/article/pii/S0006320719305099?via%3Dihub) shows online sentiment analysis on Twitter can detect prominent conservation events towards iconic species such as rhinos. However, the vast amount of information available on social media platforms presents both an opportunity and a challenge. 
