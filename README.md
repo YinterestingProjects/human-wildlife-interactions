@@ -43,5 +43,5 @@ In addition to the YouTube 8 Million dataset, you will also need access to the Y
 This access is completely free, however you will need to follow the instructions to setup your google cloud account and then enable the YouTube API from within that account. We highly recommend setting up two different API accounts / keys so that you can experiment without running into daily rate limiting issues (for the wildlife lookup a single one can do the job, but you won't be able to do more than 1 run per day). 
 
 
-##### Why Notebooks instead of purely scripting the process?
+## Why Notebooks instead of purely scripting the process?
 We are collaborating with quite a few people on this project and they have a wide range of programming experience. In an effort to accommodate everyone we defaulted to the notebook format as it allowed us to include more information, generate charts and images, and generally feel more approachable. Some steps have been abstracted out into accompanying scripts or utility files, but in general all of the information is contained within the notebooks which have lots of comments and headers to help people get started.
